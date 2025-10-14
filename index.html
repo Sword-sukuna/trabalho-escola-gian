@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home | Nossa Escola</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nossa Escola | Página Inicial</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- HEADER -->
-  <header class="cabecalho-itens">
-    <img class="cabecalho_imagem" src="logo_nossa_escola.png" alt="Logo da Página">
-    <h1 class="titulo_site">Nossa Escola</h1>
+  <header>
+    <div class="logo">
+      <img src="logo_nossa_escola.png" alt="Logo da Escola">
+      <h1>Nossa Escola</h1>
+    </div>
     <div class="sociais">
-      <img src="whatsapp.png" alt="WhatsApp">
-      <img src="facebook.png" alt="Facebook">
-      <img src="instagram.png" alt="Instagram">
+      <a href="#"><img src="icone_facebook.png" alt="Facebook"></a>
+      <a href="#"><img src="icone_instagram.png" alt="Instagram"></a>
+      <a href="#"><img src="icone_whatsapp.png" alt="WhatsApp"></a>
     </div>
   </header>
 
-  <!-- CARROSSEL -->
+  <!-- BANNER / CARROSSEL -->
   <section class="banner">
     <div class="banner-container">
       <img class="banner-img ativo" src="paragrafo_1_banner.jpg" alt="Banner 1">
@@ -30,33 +32,21 @@
     <button class="banner-btn direita">❯</button>
   </section>
 
-  <!-- ALUNOS -->
+  <!-- SEÇÃO ALUNOS -->
   <section class="estudante">
     <h1 class="estudante_titulo">Alunos em Destaque 2025</h1>
-    <div class="estudantes_todos">
-      <!-- Cards de alunos -->
-      <!-- Cada card tem um status: Aprovado ou Reprovado -->
-      <div class="card" data-status="Aprovado"><div class="front"><img src="estudante_menino.png" alt=""><h3>Aluno 1</h3></div><div class="back aprovado">Aprovado ✅</div></div>
-      <div class="card" data-status="Reprovado"><div class="front"><img src="estudante_menina.png" alt=""><h3>Aluno 2</h3></div><div class="back reprovado">Reprovado ❌</div></div>
-      <div class="card" data-status="Aprovado"><div class="front"><img src="estudante_menino.png" alt=""><h3>Aluno 3</h3></div><div class="back aprovado">Aprovado ✅</div></div>
-      <div class="card" data-status="Reprovado"><div class="front"><img src="estudante_menina.png" alt=""><h3>Aluno 4</h3></div><div class="back reprovado">Reprovado ❌</div></div>
-      <div class="card" data-status="Aprovado"><div class="front"><img src="estudante_menino.png" alt=""><h3>Aluno 5</h3></div><div class="back aprovado">Aprovado ✅</div></div>
-      <div class="card" data-status="Aprovado"><div class="front"><img src="estudante_menina.png" alt=""><h3>Aluno 6</h3></div><div class="back aprovado">Aprovado ✅</div></div>
-      <div class="card" data-status="Reprovado"><div class="front"><img src="estudante_menino.png" alt=""><h3>Aluno 7</h3></div><div class="back reprovado">Reprovado ❌</div></div>
-      <div class="card" data-status="Aprovado"><div class="front"><img src="estudante_menina.png" alt=""><h3>Aluno 8</h3></div><div class="back aprovado">Aprovado ✅</div></div>
-      <div class="card" data-status="Aprovado"><div class="front"><img src="estudante_menino.png" alt=""><h3>Aluno 9</h3></div><div class="back aprovado">Aprovado ✅</div></div>
-      <div class="card" data-status="Reprovado"><div class="front"><img src="estudante_menina.png" alt=""><h3>Aluno 10</h3></div><div class="back reprovado">Reprovado ❌</div></div>
-    </div>
+    <div class="estudantes_todos"></div>
   </section>
 
   <!-- RODAPÉ -->
   <footer class="escola">
     <img class="logo_rodape" src="logo_nossa_escola.png" alt="Logo da Escola">
-    <h2 class="escola-título">
-      Mais informações entre em contato
-      <a class="link" href="https://wa.me/5541999999999"> 41 9.9999-9999 </a>
+    <h2 class="escola-titulo">
+      Mais informações entre em contato 
+      <a class="link" href="https://wa.me/5541999999999" target="_blank">41 9.9999-9999</a>
     </h2>
     <p>©2025 | Curso de ADS | Profº Antonio Carlos | Todos os Direitos Reservados.</p>
+    <p>Política de Privacidade | Proteção de Dados | Encarregado de Dados</p>
   </footer>
 
   <script src="script.js"></script>

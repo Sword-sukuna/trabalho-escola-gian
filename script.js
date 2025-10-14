@@ -1,53 +1,98 @@
-// === CARROSSEL ===
+// ====== CARROSSEL (autoplay + botões) ======
 const container = document.querySelector('.banner-container');
-const slides = document.querySelectorAll('.banner-img');
+const slides = Array.from(document.querySelectorAll('.banner-slide'));
 const btnPrev = document.querySelector('.banner-btn.esquerda');
 const btnNext = document.querySelector('.banner-btn.direita');
 
 let index = 0;
+const total = slides.length;
 
-function mostrarSlide(i) {
-  index = (i + slides.length) % slides.length;
+function atualizarSlide(i) {
+  index = (i + total) % total;
   container.style.transform = `translateX(${-index * 100}%)`;
 }
 
-btnPrev.addEventListener('click', () => mostrarSlide(index - 1));
-btnNext.addEventListener('click', () => mostrarSlide(index + 1));
+// botões
+btnPrev.addEventListener('click', () => {
+  atualizarSlide(index - 1);
+  reiniciarAutoplay();
+});
+btnNext.addEventListener('click', () => {
+  atualizarSlide(index + 1);
+  reiniciarAutoplay();
+});
 
-setInterval(() => {
-  mostrarSlide(index + 1);
-}, 5000);
+// autoplay a cada 5s
+let autoplay = setInterval(() => atualizarSlide(index + 1), 5000);
+function reiniciarAutoplay() {
+  clearInterval(autoplay);
+  autoplay = setInterval(() => atualizarSlide(index + 1), 5000);
+}
 
-// === ALUNOS ===
-const alunos = [
-  "Aluno 1","Aluno 2","Aluno 3","Aluno 4","Aluno 5",
-  "Aluno 6","Aluno 7","Aluno 8","Aluno 9","Aluno 10"
+// garante que o container inicial esteja no lugar (caso o CSS calc difira)
+atualizarSlide(0);
+
+// ====== CARDS DE ALUNOS (10 nomes aleatórios) ======
+const nomes = [
+  "Ana Beatriz","Caio Henrique","Mariana Souza","Gabriel Lima","Rafaela Costa",
+  "Lucas Pereira","Beatriz Oliveira","Matheus Rodrigues","Larissa Almeida","Felipe Santos"
 ];
 
 const areaAlunos = document.querySelector('.estudantes_todos');
 
-alunos.forEach(nome => {
+// função para gerar média aleatória com 1 casa decimal entre 5.0 e 10.0
+function gerarMedia() {
+  const m = Math.random() * (10 - 5) + 5;
+  return Math.round(m * 10) / 10; // uma casa decimal
+}
+
+// pequeno texto baseado na média
+function textoPorMedia(media) {
+  if (media >= 9) return "Excelente desempenho";
+  if (media >= 7.5) return "Bom desempenho";
+  if (media >= 6) return "Desempenho regular";
+  return "Precisa melhorar";
+}
+
+// cria os cards
+nomes.forEach((nome, i) => {
   const card = document.createElement('div');
-  card.classList.add('estudante-card');
+  card.className = 'estudante-card';
+  card.setAttribute('role', 'button');
+  card.setAttribute('aria-pressed', 'false');
+  card.tabIndex = 0;
 
   const inner = document.createElement('div');
-  inner.classList.add('estudante-inner');
+  inner.className = 'estudante-inner';
 
   const frente = document.createElement('div');
-  frente.classList.add('estudante-front');
-  frente.innerHTML = `<img src="estudante_menino.png" alt="${nome}"><h3>${nome}</h3>`;
+  frente.className = 'estudante-front';
+  // alterna imagem masculina/feminina apenas para variar
+  const imagem = (i % 2 === 0) ? 'estudante_menino.png' : 'estudante_menina.png';
+  frente.innerHTML = `<img src="${imagem}" alt="${nome}"><h3>${nome}</h3>`;
 
   const verso = document.createElement('div');
-  verso.classList.add('estudante-back');
-  verso.textContent = Math.random() > 0.5 ? '✅ Aprovado' : '❌ Reprovado';
+  verso.className = 'estudante-back';
+  const media = gerarMedia();
+  const texto = textoPorMedia(media);
+  verso.innerHTML = `<div class="media">Média: ${media.toFixed(1)}</div><div class="texto">${texto}</div>`;
 
   inner.appendChild(frente);
   inner.appendChild(verso);
   card.appendChild(inner);
-
-  card.addEventListener('click', () => {
-    card.classList.toggle('virado');
-  });
-
   areaAlunos.appendChild(card);
+
+  // clique e teclado para virar
+  function toggleFlip() {
+    const flipped = card.classList.toggle('flipped');
+    card.setAttribute('aria-pressed', flipped ? 'true' : 'false');
+  }
+
+  card.addEventListener('click', toggleFlip);
+  card.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleFlip();
+    }
+  });
 });

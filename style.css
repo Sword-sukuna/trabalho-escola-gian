@@ -1,128 +1,181 @@
-/* ===== RESET ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* ====== GERAL ====== */
 body {
-  font-family: "Poppins", sans-serif;
-  background: white;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
   color: #333;
 }
 
-/* HEADER — conforme você já tem */
 header {
-  background: #1E3A5F;
-  color: white;
-  padding: 14px 0;
+  background: #003366;
+  color: #fff;
+  padding: 15px;
 }
+
 .cabecalho-itens {
-  max-width: 1200px;
-  margin: 0 auto;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 0 16px;
+  align-items: center;
 }
+
 .logo-area {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
+
 .cabecalho_imagem {
-  height: 56px;
+  height: 50px;
 }
-.titulo_site {
-  font-size: 22px;
-  font-weight: 600;
-}
+
 .sociais img {
-  width: 26px;
-  margin-left: 8px;
+  height: 30px;
+  margin-left: 10px;
   transition: transform 0.3s;
 }
+
 .sociais img:hover {
-  transform: scale(1.15);
+  transform: scale(1.1);
 }
 
-/* ===== CARROSSEL ===== */
+/* ====== CARROSSEL ====== */
 .banner {
+  position: relative;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 18px 0;
-  background: white;
+  height: 450px;
+  overflow: hidden;
+  background-color: #fff;
 }
+
 .banner-viewport {
   width: 100%;
-  max-width: 1200px;
-  height: 420px;
+  height: 100%;
   overflow: hidden;
-  position: relative;
-  border-radius: 8px;
-  background: white;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
 }
+
 .banner-container {
   display: flex;
-  width: calc(100% * 4); /* para 4 banners */
+  transition: transform 0.5s ease-in-out;
   height: 100%;
-  transition: transform 0.6s ease;
 }
+
 .banner-slide {
+  flex: 0 0 100%;
+  height: 100%;
+}
+
+.banner-slide img {
   width: 100%;
   height: 100%;
-  flex: 0 0 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.banner-slide img {
-  max-width: 100%;
-  max-height: 100%;
   object-fit: contain;
-  display: block;
   background: white;
 }
 
-/* botões */
 .banner-btn {
   position: absolute;
-  z-index: 20;
-  background: rgba(0,0,0,0.45);
-  border: none;
-  color: white;
-  padding: 10px 14px;
-  border-radius: 6px;
-  font-size: 24px;
-  cursor: pointer;
-  transition: background .2s, transform .15s;
   top: 50%;
   transform: translateY(-50%);
-}
-.banner-btn:hover {
-  background: rgba(0,0,0,0.7);
-  transform: translateY(-50%) scale(1.03);
-}
-.banner-btn.esquerda { left: 16px; }
-.banner-btn.direita { right: 16px; }
-
-/* ===== RODAPÉ ===== */
-footer.escola {
-  background: #1E3A5F;
+  background: rgba(0, 0, 0, 0.5);
   color: white;
-  padding: 26px 12px;
+  border: none;
+  font-size: 30px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.banner-btn.esquerda { left: 10px; }
+.banner-btn.direita { right: 10px; }
+
+.banner-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* ====== ALUNOS ====== */
+.estudante {
+  padding: 40px 20px;
   text-align: center;
 }
+
+.estudantes_todos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card-aluno {
+  width: 180px;
+  height: 220px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.card-aluno:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-front img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.aprovado {
+  background: #2ecc71;
+}
+
+.reprovado {
+  background: #e74c3c;
+}
+
+/* ====== RODAPÉ ====== */
+.escola {
+  background: #003366;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
 .logo_rodape {
-  height: 56px;
-  margin-bottom: 10px;
+  height: 40px;
 }
-.escola-titulo {
-  font-size: 16px;
-  margin-bottom: 8px;
+
+.link {
+  color: #fff;
+  text-decoration: underline;
 }
-footer p {
-  font-size: 13px;
+
+@media (max-width: 768px) {
+  .banner { height: 250px; }
+  .sociais img { height: 25px; }
 }

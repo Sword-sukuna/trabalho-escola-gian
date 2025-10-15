@@ -218,3 +218,74 @@ header {
 .link:hover {
   text-decoration: underline;
 }
+
+/* ====== TELA DE LOGIN ====== */
+.login-body {
+  background-color: #f0f4ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  background-color: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.login-titulo {
+  font-size: 1.8rem;
+  color: #2a4ea3;
+  margin-bottom: 30px;
+}
+
+.login-btn {
+  background-color: #2a4ea3;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 10px 0;
+  width: 100%;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #1f3a7d;
+}
+
+.login-btn.criar {
+  background-color: #4c89ff;
+}
+
+.login-btn.criar:hover {
+  background-color: #336ad6;
+}
+
+.form-login input {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.mensagem-erro {
+  color: #d9534f;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  min-height: 20px;
+}
+
+.oculto {
+  display: none;
+}

@@ -7,11 +7,13 @@ const erroCadastro = document.getElementById('erro-cadastro');
 function mostrarLogin() {
   opcaoInicial.classList.add('oculto');
   formLogin.classList.remove('oculto');
+  erroLogin.textContent = '';
 }
 
 function mostrarCadastro() {
   opcaoInicial.classList.add('oculto');
   formCadastro.classList.remove('oculto');
+  erroCadastro.textContent = '';
 }
 
 function cadastrar() {
@@ -32,6 +34,9 @@ function cadastrar() {
 
   usuarios[nome] = senha;
   localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
+  // marca como logado e abre a página principal
+  localStorage.setItem('logado', nome);
   window.location.href = "index.html";
 }
 
@@ -51,5 +56,7 @@ function entrar() {
     return;
   }
 
+  // login bem-sucedido: gravar usuário logado e abrir index.html
+  localStorage.setItem('logado', nome);
   window.location.href = "index.html";
 }

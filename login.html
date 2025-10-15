@@ -1,36 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login | Nossa Escola</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="login-body">
-
+<body>
   <div class="login-container">
-    <h1 class="login-titulo">Bem-vindo(a) à Nossa Escola</h1>
-
-    <div id="opcao-inicial">
-      <button class="login-btn" onclick="mostrarLogin()">Entrar</button>
-      <button class="login-btn criar" onclick="mostrarCadastro()">Criar Conta</button>
-    </div>
-
-    <div id="form-login" class="form-login oculto">
-      <input type="text" id="login-nome" placeholder="Nome de usuário">
-      <input type="password" id="login-senha" placeholder="Senha">
-      <button class="login-btn" onclick="entrar()">Entrar</button>
-      <p class="mensagem-erro" id="erro-login"></p>
-    </div>
-
-    <div id="form-cadastro" class="form-login oculto">
-      <input type="text" id="cadastro-nome" placeholder="Escolha um nome de usuário">
-      <input type="password" id="cadastro-senha" placeholder="Crie uma senha">
-      <button class="login-btn criar" onclick="cadastrar()">Avançar</button>
-      <p class="mensagem-erro" id="erro-cadastro"></p>
+    <div class="login-box">
+      <h2>Bem-vindo!</h2>
+      <input type="text" id="username" placeholder="Nome de usuário">
+      <input type="password" id="password" placeholder="Senha">
+      <button onclick="login()">Entrar</button>
+      <button onclick="createAccount()">Criar Conta</button>
+      <p class="login-error" id="login-error"></p>
     </div>
   </div>
 
-  <script src="login.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

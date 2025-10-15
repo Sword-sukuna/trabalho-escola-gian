@@ -1,8 +1,6 @@
 // ====== CARROSSEL ======
 const slides = document.querySelectorAll('.banner-slide');
 const container = document.querySelector('.banner-container');
-const btnPrev = document.querySelector('.banner-btn.esquerda');
-const btnNext = document.querySelector('.banner-btn.direita');
 let index = 0;
 
 function showSlide(i) {
@@ -17,16 +15,16 @@ setInterval(() => showSlide(index + 1), 5000); // Auto play
 
 // ====== ALUNOS ======
 const alunos = [
-  { nome: "Ana Clara", imagem: "aluno1.jpg", status: "Aprovado" },
-  { nome: "João Pedro", imagem: "aluno2.jpg", status: "Reprovado" },
-  { nome: "Maria Souza", imagem: "aluno3.jpg", status: "Aprovado" },
-  { nome: "Lucas Silva", imagem: "aluno4.jpg", status: "Aprovado" },
-  { nome: "Julia Santos", imagem: "aluno5.jpg", status: "Reprovado" },
-  { nome: "Mateus Lima", imagem: "aluno6.jpg", status: "Aprovado" },
-  { nome: "Carla Mendes", imagem: "aluno7.jpg", status: "Aprovado" },
-  { nome: "Gabriel Rocha", imagem: "aluno8.jpg", status: "Reprovado" },
-  { nome: "Fernanda Costa", imagem: "aluno9.jpg", status: "Aprovado" },
-  { nome: "Eduardo Oliveira", imagem: "aluno10.jpg", status: "Aprovado" }
+  { nome: "Ana Clara", imagem: "estudante_menina.png", status: "Aprovado" },
+  { nome: "João Pedro", imagem: "estudante_menino.png", status: "Reprovado" },
+  { nome: "Maria Souza", imagem: "estudante_menina.png", status: "Aprovado" },
+  { nome: "Lucas Silva", imagem: "estudante_menino.png", status: "Aprovado" },
+  { nome: "Julia Santos", imagem: "estudante_menina.png", status: "Reprovado" },
+  { nome: "Mateus Lima", imagem: "estudante_menino.png", status: "Aprovado" },
+  { nome: "Carla Mendes", imagem: "estudante_menina.png", status: "Aprovado" },
+  { nome: "Gabriel Rocha", imagem: "estudante_menino.png", status: "Reprovado" },
+  { nome: "Fernanda Costa", imagem: "estudante_menina.png", status: "Aprovado" },
+  { nome: "Eduardo Oliveira", imagem: "estudante_menino.png", status: "Aprovado" }
 ];
 
 const containerAlunos = document.querySelector('.estudantes_todos');

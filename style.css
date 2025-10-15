@@ -1,227 +1,99 @@
-/* === GERAL === */
-body {
+/* GERAL */
+* {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, sans-serif;
-  background-color: #f4f8ff;
-  color: #003366;
+  padding: 0;
+  box-sizing: border-box;
 }
+body { font-family: Arial, sans-serif; background: #f5f9ff; }
 
+/* LOGIN */
+.login-body {
+  display: flex; justify-content: center; align-items: center;
+  height: 100vh; background: #003366; color: white;
+}
+.login-container {
+  background: white; color: #003366; padding: 2rem;
+  border-radius: 10px; text-align: center; width: 300px;
+}
+.login-container input {
+  width: 100%; padding: 10px; margin: 10px 0;
+  border: 1px solid #ccc; border-radius: 5px;
+}
+.login-container button {
+  width: 100%; padding: 10px; margin-top: 5px;
+  background: #003366; color: white; border: none; border-radius: 5px;
+  cursor: pointer; transition: 0.3s;
+}
+.login-container button:hover { background: #0055aa; }
+#erro-login { color: red; margin-top: 10px; }
+
+/* HEADER */
 header {
-  background-color: #003366;
-  padding: 15px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
+  background: #003366; color: white;
+  padding: 10px 20px; display: flex; justify-content: space-between; align-items: center;
+}
+.logo-area { display: flex; align-items: center; gap: 10px; }
+.cabecalho_imagem { width: 40px; }
+.sociais a img {
+  width: 24px; margin-left: 10px; transition: 0.3s;
+}
+.sociais a img:hover { transform: scale(1.2); }
+.logout {
+  background: white; color: #003366; padding: 5px 10px;
+  border: none; border-radius: 8px; cursor: pointer;
 }
 
-header .logo-area {
-  display: flex;
-  align-items: center;
-}
-
-header .logo-area img {
-  height: 50px;
-  margin-right: 10px;
-}
-
-.titulo_site {
-  font-size: 1.5rem;
-}
-
-button.login-btn {
-  background-color: white;
-  color: #003366;
-  padding: 8px 14px;
-  font-size: 14px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-button.login-btn:hover {
-  background-color: #d9e7ff;
-}
-
-/* === CARROSSEL === */
-.banner {
-  width: 100%;
-  height: 400px;
-  position: relative;
-  overflow: hidden;
-}
-
-.banner-viewport {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
+/* BANNER */
+.banner { width: 100%; height: 300px; overflow: hidden; }
 .banner-container {
-  display: flex;
-  width: 400%;
-  height: 100%;
-  animation: slide 16s infinite;
+  display: flex; animation: slide 20s infinite;
 }
-
-.banner-slide {
-  width: 100%;
-  flex-shrink: 0;
-}
-
+.banner-slide { flex: 0 0 100%; }
 .banner-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  background-color: white;
+  width: 100%; height: 300px; object-fit: contain; background: white;
 }
-
 @keyframes slide {
-  0% { transform: translateX(0%); }
+  0% { transform: translateX(0); }
   25% { transform: translateX(-100%); }
   50% { transform: translateX(-200%); }
   75% { transform: translateX(-300%); }
-  100% { transform: translateX(0%); }
+  100% { transform: translateX(0); }
 }
 
-/* === ESTUDANTES === */
-.estudante {
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.estudante_titulo {
-  font-size: 1.8rem;
-  margin-bottom: 30px;
-}
-
+/* ALUNOS */
+.estudante { padding: 40px 20px; text-align: center; }
 .estudantes_todos {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;
 }
-
 .card {
-  width: 220px;
-  height: 300px;
-  perspective: 1000px;
+  width: 180px; height: 240px; perspective: 1000px;
 }
-
 .card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
+  width: 100%; height: 100%; transition: transform 0.6s;
+  transform-style: preserve-3d; cursor: pointer;
 }
-
-.card:hover .card-inner {
-  transform: rotateY(180deg);
-}
-
+.card:hover .card-inner { transform: rotateY(180deg); }
 .card-front, .card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+  position: absolute; width: 100%; height: 100%;
+  backface-visibility: hidden; border-radius: 12px;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
-
-.card-front {
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-.card-front img {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 15px;
-}
-
-.card-front h3 {
-  margin: 0;
-  font-size: 18px;
-}
-
+.card-front img { width: 100px; height: 100px; object-fit: contain; }
 .card-back {
-  background-color: #003366;
-  color: white;
   transform: rotateY(180deg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
-  font-size: 14px;
 }
-
-.card.aprovado .card-front {
-  background-color: #e8fff0;
+.card-back p {
+  font-size: 1.1rem; font-weight: bold;
 }
+.card-back.aprovado { color: green; }
+.card-back.reprovado { color: red; }
 
-.card.reprovado .card-front {
-  background-color: #ffecec;
+/* RODAPÉ */
+footer.escola {
+  display: flex; align-items: center; justify-content: center; gap: 20px;
+  background: #f0f4ff; padding: 20px;
 }
-
-.card.aprovado h3 { color: green; }
-.card.reprovado h3 { color: red; }
-
-/* === LOGIN === */
-.login-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: #f4f8ff;
-}
-
-.login-box {
-  background-color: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-  width: 320px;
-  text-align: center;
-}
-
-.login-box h2 {
-  margin-bottom: 20px;
-  color: #003366;
-}
-
-.login-box input {
-  width: 90%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-.login-box button {
-  background-color: #003366;
-  color: white;
-  padding: 10px 16px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  width: 95%;
-  transition: 0.3s;
-  margin-top: 5px;
-}
-
-.login-box button:hover {
-  background-color: #0055aa;
-}
-
-.login-error {
-  color: red;
-  font-size: 14px;
-  margin-top: 5px;
-}
+.logo_rodape { width: 80px; }
+footer.escola h3, footer.escola p { text-align: center; }
+footer.escola a { color: #003366; font-weight: bold; }

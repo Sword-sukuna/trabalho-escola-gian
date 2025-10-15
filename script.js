@@ -1,49 +1,68 @@
-// Simples base de dados (localStorage)
-if (!localStorage.getItem("users")) {
-  localStorage.setItem("users", JSON.stringify([]));
+// ---- LOGIN ----
+let usuarios = JSON.parse(localStorage.getItem('usuarios')) || {};
+
+function mostrarCadastro() {
+  document.getElementById('login-form').style.display = 'none';
+  document.getElementById('cadastro-form').style.display = 'block';
 }
 
-function login() {
-  const username = document.getElementById("username").value.trim();
-  const password = document.getElementById("password").value.trim();
-  const errorBox = document.getElementById("login-error");
-
-  const users = JSON.parse(localStorage.getItem("users"));
-  const user = users.find(u => u.username === username);
-
-  if (!user) {
-    errorBox.textContent = "❌ Nome inexistente.";
-    return;
+function cadastrar() {
+  const nome = document.getElementById('cadastro-nome').value;
+  const senha = document.getElementById('cadastro-senha').value;
+  if (nome && senha) {
+    usuarios[nome] = senha;
+    localStorage.setItem('usuarios', JSON.stringify(usuarios));
+    window.location.href = 'home.html';
   }
-
-  if (user.password !== password) {
-    errorBox.textContent = "❌ Senha incorreta.";
-    return;
-  }
-
-  errorBox.textContent = "";
-  window.location.href = "index.html";
 }
 
-function createAccount() {
-  const username = document.getElementById("username").value.trim();
-  const password = document.getElementById("password").value.trim();
-  const errorBox = document.getElementById("login-error");
+function entrar() {
+  const nome = document.getElementById('login-nome').value;
+  const senha = document.getElementById('login-senha').value;
+  const erro = document.getElementById('erro-login');
 
-  if (!username || !password) {
-    errorBox.textContent = "Preencha nome e senha.";
-    return;
+  if (!(nome in usuarios)) {
+    erro.textContent = 'Nome inexistente';
+  } else if (usuarios[nome] !== senha) {
+    erro.textContent = 'Senha incorreta';
+  } else {
+    window.location.href = 'home.html';
   }
+}
 
-  const users = JSON.parse(localStorage.getItem("users"));
-  if (users.some(u => u.username === username)) {
-    errorBox.textContent = "Este nome já está em uso.";
-    return;
-  }
+function sair() {
+  window.location.href = 'index.html';
+}
 
-  users.push({ username, password });
-  localStorage.setItem("users", JSON.stringify(users));
+// ---- ALUNOS ----
+const alunos = [
+  { nome: 'Lucas', aprovado: true },
+  { nome: 'Maria', aprovado: false },
+  { nome: 'João', aprovado: true },
+  { nome: 'Ana', aprovado: true },
+  { nome: 'Carlos', aprovado: false },
+  { nome: 'Julia', aprovado: true },
+  { nome: 'Pedro', aprovado: false },
+  { nome: 'Mariana', aprovado: true },
+  { nome: 'Fernando', aprovado: true },
+  { nome: 'Beatriz', aprovado: false }
+];
 
-  errorBox.textContent = "✅ Conta criada com sucesso!";
-  setTimeout(() => window.location.href = "index.html", 1000);
+const container = document.querySelector('.estudantes_todos');
+if (container) {
+  alunos.forEach(a => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="${a.aprovado ? 'estudante_menino.png' : 'estudante_menina.png'}" alt="${a.nome}">
+          <h4>${a.nome}</h4>
+        </div>
+        <div class="card-back ${a.aprovado ? 'aprovado' : 'reprovado'}">
+          <p>${a.aprovado ? 'Aprovado' : 'Reprovado'}</p>
+        </div>
+      </div>`;
+    container.appendChild(card);
+  });
 }

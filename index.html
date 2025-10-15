@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Nossa Escola | Destaque 2025</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <!-- HEADER -->
   <header>
     <div class="cabecalho-itens">
@@ -22,27 +23,53 @@
     </div>
   </header>
 
-<section class="banner" aria-label="Carrossel de banners">
-  <div class="banner-viewport">
-    <div class="banner-container">
-      <div class="banner-slide"><img src="banner1.jpg" alt="Banner 1"></div>
-      <div class="banner-slide"><img src="banner2.jpg" alt="Banner 2"></div>
-      <div class="banner-slide"><img src="banner3.jpg" alt="Banner 3"></div>
-      <div class="banner-slide"><img src="banner4.jpg" alt="Banner 4"></div>
+  <!-- CARROSSEL -->
+  <section class="banner" aria-label="Carrossel de banners">
+    <div class="banner-viewport">
+      <div class="banner-container">
+        <div class="banner-slide"><img src="banner1.jpg" alt="Banner 1"></div>
+        <div class="banner-slide"><img src="banner2.jpg" alt="Banner 2"></div>
+        <div class="banner-slide"><img src="banner3.jpg" alt="Banner 3"></div>
+        <div class="banner-slide"><img src="banner4.jpg" alt="Banner 4"></div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- ALUNOS -->
-  <section class="estudante" aria-labelledby="titulo-alunos">
-    <h2 id="titulo-alunos" class="estudante_titulo">Alunos em Destaque 2025</h2>
-    <div class="estudantes_todos"></div>
+  <section class="estudante">
+    <h2 class="estudante_titulo">Alunos em Destaque 2025</h2>
+    <div class="estudantes_todos">
+      <div class="estudante-div aprovado">
+        <img class="estudante-imagem" src="estudante_menino.png" alt="Aluno">
+        <h3 class="estudante-nome">Aluno 1</h3>
+        <div>
+          <img class="estudante-icone" src="logo_nossa_escola.png" alt="Site">
+          <img class="estudante-icone" src="instagram.png" alt="Instagram">
+          <img class="estudante-icone" src="facebook.png" alt="Facebook">
+        </div>
+        <div class="estudante-status">✅ Aprovado</div>
+      </div>
+
+      <div class="estudante-div reprovado">
+        <img class="estudante-imagem" src="estudante_menina.png" alt="Aluna">
+        <h3 class="estudante-nome">Aluno 2</h3>
+        <div>
+          <img class="estudante-icone" src="logo_nossa_escola.png" alt="Site">
+          <img class="estudante-icone" src="instagram.png" alt="Instagram">
+          <img class="estudante-icone" src="facebook.png" alt="Facebook">
+        </div>
+        <div class="estudante-status">❌ Reprovado</div>
+      </div>
+
+      <!-- Você pode duplicar esse bloco para mais alunos -->
+    </div>
   </section>
 
   <!-- RODAPÉ -->
   <footer class="escola">
     <img class="logo_rodape" src="logo_nossa_escola.png" alt="Logo da Escola">
-    <h3 class="escola-titulo">Mais informações entre em contato
+    <h3 class="escola-titulo">
+      Mais informações entre em contato
       <a class="link" href="https://wa.me/5541999999999" target="_blank" rel="noopener">41 9.9999-9999</a>
     </h3>
     <p>©2025 | Curso de ADS | Profº Antonio Carlos | Todos os Direitos Reservados.</p>
